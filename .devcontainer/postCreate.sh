@@ -17,6 +17,10 @@ if ! command -v just &> /dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
 fi
 
+# Create virtual environment explicitly in project directory
+echo "Creating virtual environment..."
+uv venv .venv
+
 # Sync Python dependencies
 echo "Installing Python dependencies..."
 uv sync --locked
